@@ -13,7 +13,7 @@ public class Library {
 
    @Value("nameFile")
     private  String nameFile;
-   private String regexVocFirstLib;
+    private String regexVocFirstLib;
     private String regexVocSecondLib;
     public void setNameFile(String nameFile) {
         this.nameFile = nameFile;
@@ -27,6 +27,8 @@ public class Library {
     public Library(InfoBase infoBase)
     {
         this.nameFile=infoBase.getFileName();
+        this.regexVocFirstLib=infoBase.getRegexVocFirstLib();
+        this.regexVocSecondLib=infoBase.getRegexVocSecondLib();
         readAllFromTxt();
     }
 
@@ -37,7 +39,7 @@ public class Library {
             BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
             String strLine;
             while ((strLine = br.readLine()) != null){
-                if(strLine.matches("[A-Za-z]+_[А-Яа-я0]+")||strLine.matches("[0-9]+_[0-1]+")) {
+                if(strLine.matches(regexVocFirstLib)||strLine.matches(regexVocSecondLib)) {
                     word = strLine.split("_");
                     states.put(word[0], word[1]);
                 }

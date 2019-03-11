@@ -57,13 +57,13 @@ public class ServiceWorker {
         int n=0;
         n=word.length();
         if(num==ListOfVocabulary.Latins_Rus) {
-            if(word.matches(firstVoc+"{"+n+"}$"))
+            if(word.matches(firstVoc))
                 return true;
             return false;
         }
          if(num==ListOfVocabulary.Number) {
 
-            if(word.matches(secondVoc+"{"+n+"}$"))
+            if(word.matches(secondVoc))
                 return true;
             return false;
         }
