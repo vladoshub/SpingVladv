@@ -3,7 +3,6 @@ package vocabulary;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
-@Component
 public class InfoBase {
 
     private String fileName;

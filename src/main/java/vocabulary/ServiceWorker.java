@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
-@Component
+@Component("ServiceWorker")
 public class ServiceWorker {
 
 
@@ -18,10 +18,7 @@ public class ServiceWorker {
         this.secondVoc=infoBase.getRegexVocSecond();
     }
 
-
-    @Value("fitstVocKey")
    private String firstVoc;
-    @Value("secondVocKey")
    private String secondVoc;
   //  private char[] Latinsk = {'A', 'B', 'C', 'D', 'E', 'F', 'Z', 'H', 'I', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'V', 'X'};
    // private char[] Number = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};

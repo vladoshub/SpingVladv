@@ -8,7 +8,7 @@ import java.io.*;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-@Component
+@Component("Library")
 public class Library {
 
    @Value("nameFile")

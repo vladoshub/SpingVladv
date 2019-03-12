@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
-@Component
+@Component("ChangeOps")
 public class ChangeOps {
 
     private Library library;
