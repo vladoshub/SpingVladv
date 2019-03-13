@@ -18,11 +18,19 @@ public class ChangeOps {
     }
 
     public void enterPoint() throws IOException {
+        ListOfVocabulary vocabulary=null;
         System.out.println("1-латино-русский");
         System.out.println("2-десятично-доичный");
         int num = Integer.parseInt(Input.input());
-        if(num==1) System.out.println("Вы выбрали латинско-русский,введите местоположение файла на диске...");
-        else if(num==2) System.out.println("Вы выбрали десятично-доичный,введите местоположение файла на диске...");
+        if(num==1){
+            vocabulary = ListOfVocabulary.Latins_Rus;
+            System.out.println("Вы выбрали латинско-русский,введите местоположение файла на диске...");
+
+        }
+        else if(num==2) {
+            vocabulary=ListOfVocabulary.Number;
+            System.out.println("Вы выбрали десятично-доичный,введите местоположение файла на диске...");
+        }
         while (true) {
             String Change;
             System.out.println("Выберите операцию:");
@@ -39,7 +47,7 @@ public class ChangeOps {
                     serviceWorker.seacrh(library);
                     break;
                 case "3":
-                    serviceWorker.add(library,num);
+                    serviceWorker.add(library,vocabulary);
                     break;
                 case "4":
                     serviceWorker.printAll(library);

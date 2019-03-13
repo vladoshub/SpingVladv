@@ -35,12 +35,12 @@ public class ServiceWorker {
         Library.readFromTxt(key);
     }
 
-    public void add(Library Library, int type)throws IOException {//метод для работы с методом добавление клаасса Library
+    public void add(Library Library, ListOfVocabulary type)throws IOException {//метод для работы с методом добавление клаасса Library
         System.out.println("введите ключ:");
         String key = Input.input();
         System.out.println("введите слово:");
         String word = Input.input();
-        if(validation(type,key))
+        if(searchFromVocabulary(key,type))
             Library.addToTxt(key,word);
         else System.out.println("несоответсвие правилам словаря ");
     }
@@ -50,9 +50,6 @@ public class ServiceWorker {
     }
 
     public boolean searchFromVocabulary(String word,ListOfVocabulary num){//поставить регулярку
-        boolean flag=false;
-        int n=0;
-        n=word.length();
         if(num==ListOfVocabulary.Latins_Rus) {
             if(word.matches(firstVoc))
                 return true;
@@ -67,19 +64,6 @@ public class ServiceWorker {
         return false;
     }
 
-    public Boolean validation(int num, String key) {//проверка
-        if(num==1){
-            if(key.length()==4&searchFromVocabulary(key,ListOfVocabulary.Latins_Rus))//проверяем длину и принадлежность алфавиту
-                return true;
-            else return false;
-        }
-        else if(num==2){
-            if(key.length()==5&searchFromVocabulary(key,ListOfVocabulary.Number))
-                return true;
-             return false;
-        }
-        return false;
-    }
 
 
 

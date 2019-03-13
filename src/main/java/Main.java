@@ -1,15 +1,33 @@
+import DataBase.Keys;
+import DataBase.Words;
+import DataBase.KeysDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import vocabulary.ChangeOps;
-import vocabulary.Library;
-import vocabulary.ServiceWorker;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-       ApplicationContext context =
+
+
+        ApplicationContext context =
                 new ClassPathXmlApplicationContext("Spring.xml");
-        ChangeOps changeOps = (ChangeOps) context.getBean("ChangeOps");
+        KeysDao keysDao = context.getBean(KeysDao.class);
+        ArrayList<Words> words = new ArrayList<Words>();
+        words.add(new Words("Жизнь"));
+        Keys keys = new Keys("vita", words);
+        keysDao.save(keys);
+        System.out.println("Keys::" + keys);
+        List<Keys> list = keysDao.getKeysList();
+        for (Keys p : list) {
+            System.out.println("Keys List::" + p);
+        }
+        ((ClassPathXmlApplicationContext) context).close();
+
+       /* ChangeOps changeOps = (ChangeOps) context.getBean("ChangeOps");
         try {
             changeOps.enterPoint();
         }
@@ -17,12 +35,12 @@ public class Main {
             System.out.println("Error");
         }
 
-    }
-
-
-
-
 
     }
+    */
+
+
+    }
+}
 
 
