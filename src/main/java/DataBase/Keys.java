@@ -4,12 +4,12 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="KEYS")
+@Table(name="keys")
 public class Keys {
     @Id
     @Column(name="id")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private String key;
     @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     private List<Words> words;
@@ -20,10 +20,10 @@ public class Keys {
         this.key = key;
         this.words = words;
     }
-    public Long getId() {
+    public int getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
     public String getKey() {
@@ -40,7 +40,7 @@ public class Keys {
     }
     @Override
     public String toString() {
-        return "Person{" +
+        return "KEYS{" +
                 "id=" + id +
                 ", Key='" + key + '\'' +
                 ", Words=" + words +

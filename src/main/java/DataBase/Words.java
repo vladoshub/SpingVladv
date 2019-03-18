@@ -4,23 +4,24 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="WORDS")
+@Table(name="words")
 public class Words {
     @Id
     @Column(name="id")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private String word;
+
     public Words() {
         super();
     }
     public Words(String word) {
         this.word = word;
     }
-    public Long getId() {
+    public int getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -37,4 +38,5 @@ public class Words {
                 ", words=" + word +
                 '}';
     }
+
 }

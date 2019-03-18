@@ -25,6 +25,7 @@ public class Main {
         for (Keys p : list) {
             System.out.println("Keys List::" + p);
         }
+       System.out.println(keysDao.findWordsById(1).getWord());
         ((ClassPathXmlApplicationContext) context).close();
 
        /* ChangeOps changeOps = (ChangeOps) context.getBean("ChangeOps");
