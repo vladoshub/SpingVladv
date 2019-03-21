@@ -1,7 +1,4 @@
-package DataBase;
-
-import org.hibernate.annotations.Cascade;
-import org.springframework.stereotype.Repository;
+package entity;
 
 import javax.persistence.*;
 import java.util.List;

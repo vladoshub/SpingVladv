@@ -1,17 +1,15 @@
-package DataBase;
+package dao;
 
+import entity.Keys;
+import entity.Words;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.annotations.AttributeAccessor;
-import org.hibernate.criterion.Expression;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import java.security.Key;
 import java.util.List;
 @Repository
 public class KeysDaoImpl implements KeysDao {

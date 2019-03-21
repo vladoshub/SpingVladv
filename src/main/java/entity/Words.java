@@ -1,9 +1,8 @@
-package DataBase;
+package entity;
 
-import org.springframework.stereotype.Repository;
+import entity.Keys;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name="words")

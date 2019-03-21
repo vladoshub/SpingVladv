@@ -1,7 +1,7 @@
-package DataBase;
+package dao;
 
-import org.hibernate.SessionFactory;
-import org.springframework.stereotype.Repository;
+import entity.Keys;
+import entity.Words;
 
 import java.util.List;
 public interface KeysDao {
