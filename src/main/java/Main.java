@@ -5,6 +5,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Main {
 
@@ -14,10 +16,14 @@ public class Main {
         ApplicationContext context =
                 new ClassPathXmlApplicationContext("Spring.xml");
         KeysDao keysDao = context.getBean(KeysDao.class);
-        ArrayList<Words> words = new ArrayList<Words>();
-        words.add(new Words("владhgvghbvv"));
-        Keys keys = new Keys("vlavghghdosng", words);
-        keysDao.save(keys);
+        Words words2 = new Words();
+        Keys keys2 = new Keys();
+        words2.setKey(keys2);
+        words2.setWord("apple2");
+        keys2.setWords(Collections.singletonList(words2));
+        keys2.setKey("vlad");
+        //Keys keys = new Keys("vlajkjkvghghdosng", words2);
+        keysDao.save(keys2);
         // System.out.println("Keys::" + keys);
         // List<Keys> list = keysDao.getKeysList();
         //  for (Keys p : list) {

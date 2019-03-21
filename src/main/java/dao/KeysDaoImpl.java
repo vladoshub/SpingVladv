@@ -10,13 +10,16 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.security.PublicKey;
 import java.util.List;
 
 @Repository
 public class KeysDaoImpl implements KeysDao {
     @Autowired
+    public KeysDaoImpl(SessionFactory sessionFactory){
+        this.sessionFactory=sessionFactory;
+    }
     private SessionFactory sessionFactory;
-
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
@@ -70,7 +73,7 @@ public class KeysDaoImpl implements KeysDao {
     }
 
     @Override
-    public Words findWordsById(int id) {
+    public Words findWordsById(long id) {
         return (Words) this.sessionFactory.openSession().get(Words.class, id);
     }
 

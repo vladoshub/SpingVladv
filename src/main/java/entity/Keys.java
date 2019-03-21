@@ -9,14 +9,9 @@ public class Keys {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    // @Column(unique = true)
+    private long id;
     private String key;
-    //@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    //@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    //@JoinColumn(name = "keys_id")
-    //@OneToMany(mappedBy="keys")
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "key", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Words> words;
 
     public Keys() {
@@ -28,7 +23,8 @@ public class Keys {
         this.words = words;
     }
 
-    public int getId() {
+
+    public long getId() {
         return id;
     }
 
@@ -40,15 +36,16 @@ public class Keys {
         return key;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setKey(String key_id) {
+        this.key = key_id;
     }
 
     public List<Words> getWords() {
         return words;
     }
 
-    public void SetWords(List<Words> words) {
+    public void setWords(List<Words> words) {
+
         this.words = words;
     }
 

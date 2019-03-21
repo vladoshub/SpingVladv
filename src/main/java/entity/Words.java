@@ -1,6 +1,7 @@
 package entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "words")
@@ -8,16 +9,19 @@ public class Words {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private String word;
-    // @ManyToOne
-    //@JoinColumn(name="keys_id", nullable=false)
-    // private Keys keys_id;
+    @ManyToOne
+    @JoinColumn(name="key_id")
+    private Keys key;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "keyID")
-    private Keys keyID;
+    public void setKey(Keys key) {
+        this.key = key;
+    }
 
+    public Keys getKey() {
+        return key;
+    }
 
     public Words() {
         super();
@@ -27,7 +31,7 @@ public class Words {
         this.word = word;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

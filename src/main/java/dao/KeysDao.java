@@ -12,7 +12,7 @@ public interface KeysDao {
 
     public void delete(Object K);
 
-    public Words findWordsById(int id);
+    public Words findWordsById(long id);
 
     public List<Keys> findByKey(String key);
 
