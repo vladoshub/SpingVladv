@@ -1,5 +1,7 @@
 package DataBase;
 
+import org.springframework.stereotype.Repository;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -11,6 +13,14 @@ public class Words {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
     private String word;
+   // @ManyToOne
+    //@JoinColumn(name="keys_id", nullable=false)
+   // private Keys keys_id;
+
+   @ManyToOne(fetch=FetchType.LAZY)
+   @JoinColumn(name="keyID")
+   private Keys keyID;
+
 
     public Words() {
         super();
@@ -31,6 +41,9 @@ public class Words {
     public void setWord(String word) {
         this.word = word;
     }
+
+
+
     @Override
     public String toString() {
         return "Words{" +

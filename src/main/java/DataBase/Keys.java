@@ -1,8 +1,10 @@
 package DataBase;
 
+import org.hibernate.annotations.Cascade;
+import org.springframework.stereotype.Repository;
+
 import javax.persistence.*;
 import java.util.List;
-
 @Entity
 @Table(name="keys")
 public class Keys {
@@ -10,8 +12,13 @@ public class Keys {
     @Column(name="id")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
+  // @Column(unique = true)
     private String key;
-    @OneToMany(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
+    //@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    //@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    //@JoinColumn(name = "keys_id")
+    //@OneToMany(mappedBy="keys")
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Words> words;
     public Keys() {
         super();

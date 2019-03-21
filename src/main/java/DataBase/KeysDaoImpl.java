@@ -1,9 +1,13 @@
 package DataBase;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Expression;
+import org.hibernate.criterion.Restrictions;
 
+import java.security.Key;
 import java.util.List;
 
 public class KeysDaoImpl implements KeysDao {
@@ -24,10 +28,21 @@ public class KeysDaoImpl implements KeysDao {
             e.getMessage();
         }
     }
-    public Keys findById(int id) {
-        Session session = this.sessionFactory.openSession();
-        return (Keys) session.getSessionFactory().openSession().get(Keys.class, id);
+    @Override
+    public List<Keys>  findByKey(String key) {
+       Session session = this.sessionFactory.openSession();
+       /* List ux = session.createQuery("SELECT id FROM Keys where key='"+key+"'").list();
+        Words  w = findWordsById((int)ux.get(1));*/
+        Criteria criteria = session.createCriteria(Keys.class);
+        List<Keys> ux = criteria.add(Restrictions.eq("key", key)).list();
+        Keys keys = new Keys();
+  //      keys.setId(17);
+  //      delete(keys);
+ //       delete(ux.get(13).getWords().get(0));
+        session.close();
+       return ux;
     }
+
     @Override
     public void update(Keys keys) {
         Session session = this.sessionFactory.openSession();
@@ -36,8 +51,10 @@ public class KeysDaoImpl implements KeysDao {
         tx1.commit();
         session.close();
     }
+
+
     @Override
-    public void delete(Keys keys) {
+    public void delete(Object keys) {
         Session session = this.sessionFactory.openSession();
         Transaction tx1 = session.beginTransaction();
         session.delete(keys);
