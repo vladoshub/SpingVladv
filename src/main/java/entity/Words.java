@@ -1,35 +1,36 @@
 package entity;
 
-import entity.Keys;
-
 import javax.persistence.*;
 
 @Entity
-@Table(name="words")
+@Table(name = "words")
 public class Words {
     @Id
-    @Column(name="id")
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String word;
-   // @ManyToOne
+    // @ManyToOne
     //@JoinColumn(name="keys_id", nullable=false)
-   // private Keys keys_id;
+    // private Keys keys_id;
 
-   @ManyToOne(fetch=FetchType.LAZY)
-   @JoinColumn(name="keyID")
-   private Keys keyID;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "keyID")
+    private Keys keyID;
 
 
     public Words() {
         super();
     }
+
     public Words(String word) {
         this.word = word;
     }
+
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -37,10 +38,10 @@ public class Words {
     public String getWord() {
         return word;
     }
+
     public void setWord(String word) {
         this.word = word;
     }
-
 
 
     @Override

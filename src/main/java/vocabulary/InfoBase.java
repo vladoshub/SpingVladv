@@ -1,8 +1,5 @@
 package vocabulary;
 
-import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
 public class InfoBase {
 
     private String fileName;
@@ -11,12 +8,12 @@ public class InfoBase {
     private String regexVocFirstLib;
     private String regexVocSecondLib;
 
-    InfoBase(String fileName,String regexVocFirst,String regexVocSecond,String regexVocFirstLib,String regexVocSecondLib){
-        this.fileName=fileName;
-        this.regexVocFirst=regexVocFirst;
-        this.regexVocSecond=regexVocSecond;
-        this.regexVocFirstLib=regexVocFirstLib;
-        this.regexVocSecondLib=regexVocSecondLib;
+    InfoBase(String fileName, String regexVocFirst, String regexVocSecond, String regexVocFirstLib, String regexVocSecondLib) {
+        this.fileName = fileName;
+        this.regexVocFirst = regexVocFirst;
+        this.regexVocSecond = regexVocSecond;
+        this.regexVocFirstLib = regexVocFirstLib;
+        this.regexVocSecondLib = regexVocSecondLib;
 
     }
 

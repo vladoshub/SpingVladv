@@ -11,10 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
 @Repository
 public class KeysDaoImpl implements KeysDao {
     @Autowired
     private SessionFactory sessionFactory;
+
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
@@ -32,19 +34,20 @@ public class KeysDaoImpl implements KeysDao {
             e.getMessage();
         }
     }
+
     @Override
-    public List<Keys>  findByKey(String key) {
-       Session session = this.sessionFactory.openSession();
+    public List<Keys> findByKey(String key) {
+        Session session = this.sessionFactory.openSession();
        /* List ux = session.createQuery("SELECT id FROM Keys where key='"+key+"'").list();
         Words  w = findWordsById((int)ux.get(1));*/
         Criteria criteria = session.createCriteria(Keys.class);
         List<Keys> ux = criteria.add(Restrictions.eq("key", key)).list();
         Keys keys = new Keys();
-  //      keys.setId(17);
-  //      delete(keys);
- //       delete(ux.get(13).getWords().get(0));
+        //      keys.setId(17);
+        //      delete(keys);
+        //       delete(ux.get(13).getWords().get(0));
         session.close();
-       return ux;
+        return ux;
     }
 
     @Override
@@ -65,6 +68,7 @@ public class KeysDaoImpl implements KeysDao {
         tx1.commit();
         session.close();
     }
+
     @Override
     public Words findWordsById(int id) {
         return (Words) this.sessionFactory.openSession().get(Words.class, id);

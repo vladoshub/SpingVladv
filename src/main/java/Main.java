@@ -1,6 +1,6 @@
+import dao.KeysDao;
 import entity.Keys;
 import entity.Words;
-import dao.KeysDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -18,13 +18,13 @@ public class Main {
         words.add(new Words("владhgvghbvv"));
         Keys keys = new Keys("vlavghghdosng", words);
         keysDao.save(keys);
-       // System.out.println("Keys::" + keys);
-       // List<Keys> list = keysDao.getKeysList();
-      //  for (Keys p : list) {
-     //       System.out.println("Keys List::" + p);
-     //   }
-     //  System.out.println(keysDao.findByKey("vita"));
-       // keysDao.delete(new Keys());
+        // System.out.println("Keys::" + keys);
+        // List<Keys> list = keysDao.getKeysList();
+        //  for (Keys p : list) {
+        //       System.out.println("Keys List::" + p);
+        //   }
+        //  System.out.println(keysDao.findByKey("vita"));
+        // keysDao.delete(new Keys());
         ((ClassPathXmlApplicationContext) context).close();
 
        /* ChangeOps changeOps = (ChangeOps) context.getBean("ChangeOps");

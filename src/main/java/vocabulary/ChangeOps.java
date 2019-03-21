@@ -1,9 +1,10 @@
 package vocabulary;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Component;
 
-import java.io.*;
+import java.io.IOException;
+
 @Component("ChangeOps")
 public class ChangeOps {
 
@@ -12,23 +13,22 @@ public class ChangeOps {
 
 
     @Autowired
-    public ChangeOps(Library library,ServiceWorker serviceWorker){
-        this.library=library;
-        this.serviceWorker=serviceWorker;
+    public ChangeOps(Library library, ServiceWorker serviceWorker) {
+        this.library = library;
+        this.serviceWorker = serviceWorker;
     }
 
     public void enterPoint() throws IOException {
-        ListOfVocabulary vocabulary=null;
+        ListOfVocabulary vocabulary = null;
         System.out.println("1-латино-русский");
         System.out.println("2-десятично-доичный");
         int num = Integer.parseInt(Input.input());
-        if(num==1){
+        if (num == 1) {
             vocabulary = ListOfVocabulary.Latins_Rus;
             System.out.println("Вы выбрали латинско-русский,введите местоположение файла на диске...");
 
-        }
-        else if(num==2) {
-            vocabulary=ListOfVocabulary.Number;
+        } else if (num == 2) {
+            vocabulary = ListOfVocabulary.Number;
             System.out.println("Вы выбрали десятично-доичный,введите местоположение файла на диске...");
         }
         while (true) {
@@ -47,12 +47,13 @@ public class ChangeOps {
                     serviceWorker.seacrh(library);
                     break;
                 case "3":
-                    serviceWorker.add(library,vocabulary);
+                    serviceWorker.add(library, vocabulary);
                     break;
                 case "4":
                     serviceWorker.printAll(library);
                     break;
-                default:System.out.println("неправильный ввод");
+                default:
+                    System.out.println("неправильный ввод");
                     break;
             }
             System.out.println("Хотите продолжить?Введите:y");
