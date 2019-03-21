@@ -6,16 +6,20 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Expression;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
 import java.security.Key;
 import java.util.List;
-
+@Repository
 public class KeysDaoImpl implements KeysDao {
     private SessionFactory sessionFactory;
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
+    public KeysDaoImpl(SessionFactory sessionFactory){
+        this.sessionFactory=sessionFactory;
+    }
     @Override
     public void save(Keys vocabulary) {
         Session session = this.sessionFactory.openSession();
