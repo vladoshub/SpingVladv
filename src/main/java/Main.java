@@ -1,14 +1,6 @@
-import dao.KeysDao;
-import entity.Keys;
-import entity.Words;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import service.Beans;
 import vocabulary.ChangeOps;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class Main {
 
@@ -35,12 +27,11 @@ public class Main {
          //keysDao.delete(new Keys());
         ((ClassPathXmlApplicationContext) context).close();
 */
-       Beans beans = new Beans();
+        Beans beans = new Beans();
         ChangeOps changeOps = (ChangeOps) Beans.context.getBean("ChangeOps");
         try {
             changeOps.enterPoint();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Error:" + e.getMessage());
         }
         ((ClassPathXmlApplicationContext) Beans.context).close();

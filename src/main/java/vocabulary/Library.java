@@ -36,7 +36,7 @@ public class Library {
         this.nameFile = nameFile;
     }
 */
-   // private Map<String, String> states = new HashMap<String, String>();//будем хранить тут наш словарь
+    // private Map<String, String> states = new HashMap<String, String>();//будем хранить тут наш словарь
 
 
     @Autowired
@@ -44,7 +44,7 @@ public class Library {
         this.nameFile = infoBase.getFileName();
         this.regexVocFirstLib = infoBase.getRegexVocFirstLib();
         this.regexVocSecondLib = infoBase.getRegexVocSecondLib();
-              keysDao = new KeysDaoImpl(ses);
+        keysDao = new KeysDaoImpl(ses);
     }
 
 
@@ -77,9 +77,8 @@ public class Library {
             Console.outError(e);
         }
         */
-        for(Keys k:keysDao.getKeysList())
-            {
-            for(Words w:k.getWords()) {
+        for (Keys k : keysDao.getKeysList()) {
+            for (Words w : k.getWords()) {
                 System.out.println("key: " + k.getKey() + " - " + "word: " + w.getWord());
             }
         }
@@ -92,11 +91,9 @@ public class Library {
             Console.outError(e);
         }
         */
-        for(Words w:keysDao.getWordsByKey(key))
-        {
-            System.out.println("key: "+key+" - "+"word: "+ w.getWord());
+        for (Words w : keysDao.getWordsByKey(key)) {
+            System.out.println("key: " + key + " - " + "word: " + w.getWord());
         }
-
 
 
     }
@@ -110,15 +107,15 @@ public class Library {
         }
         saveToTxt();
         */
-       keysDao.deleteByKey(key);
+        keysDao.deleteByKey(key);
 
 
     }
 
     public void addToTxt(String key, String value) {//--	добавление записей
-       // states.put(key, value);
+        // states.put(key, value);
         //saveToTxt();
-        keysDao.AddKey(key,value);
+        keysDao.AddKey(key, value);
         //readAllFromTxt();
     }
 
