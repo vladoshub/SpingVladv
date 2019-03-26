@@ -44,9 +44,14 @@ public class Keys {
         return words;
     }
 
+    public void setWords(Words words) {
+
+        this.words.add(words);
+    }
+
     public void setWords(List<Words> words) {
 
-        this.words = words;
+        this.words=words;
     }
 
     @Override
