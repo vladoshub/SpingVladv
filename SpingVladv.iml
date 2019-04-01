@@ -24,5 +24,18 @@
         </sourceRoots>
       </configuration>
     </facet>
+    <facet type="Spring" name="Spring">
+      <configuration>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/Spring.xml</file>
+        </fileset>
+        <fileset id="fileset" name="Sping" removed="false">
+          <file>file://$MODULE_DIR$/Sping.XML</file>
+          <file>file://$MODULE_DIR$/src/main/java/configs/MyConfig.java</file>
+          <file>file://$MODULE_DIR$/Spring.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/Spring.xml</file>
+        </fileset>
+      </configuration>
+    </facet>
   </component>
 </module>

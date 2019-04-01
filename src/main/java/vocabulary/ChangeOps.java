@@ -5,11 +5,16 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
+
 @Component("ChangeOps")
+
 public class ChangeOps {
+
 
     private Library library;
     private ServiceWorker serviceWorker;
+
+
 
 
     @Autowired

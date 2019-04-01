@@ -4,6 +4,13 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:/Spring.xml
+        </param-value>
+    </context-param>
+
+
     <servlet>
         <servlet-name>Vocaburares</servlet-name>
         <servlet-class>servlets.JavaServlet</servlet-class>
@@ -13,4 +20,10 @@
         <servlet-name>Vocaburares</servlet-name>
         <url-pattern>/Vocaburares</url-pattern>
     </servlet-mapping>
+    <listener>
+        <listener-class>
+            servlets.SpringApplicationContextListener
+        </listener-class>
+    </listener>
+
 </web-app>
