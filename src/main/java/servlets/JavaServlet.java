@@ -28,9 +28,8 @@ public class JavaServlet extends HttpServlet {
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
 
+
         ApplicationContext ac = WebApplicationContextUtils.getWebApplicationContext(config.getServletContext());
-
-
         changeOps = (ChangeOps)ac.getBean("ChangeOps");
     }
     @Override
