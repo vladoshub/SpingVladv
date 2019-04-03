@@ -1,7 +1,6 @@
-package entity;
+package ru.mmtr.entity;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "words")

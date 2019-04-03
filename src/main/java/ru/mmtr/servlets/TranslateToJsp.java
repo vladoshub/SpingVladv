@@ -1,4 +1,4 @@
-package servlets;
+package ru.mmtr.servlets;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,9 +8,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class TranslateToJsp extends HttpServlet {
-    protected static void doPost(HttpServletRequest req, HttpServletResponse resp,String s) throws ServletException, IOException {
+
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp,String s) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("Vocabulares.jsp");
         req.setAttribute("req", s);
     }
+
 
 }

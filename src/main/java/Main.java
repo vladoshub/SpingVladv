@@ -1,6 +1,6 @@
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import vocabulary.ChangeOps;
+import ru.mmtr.vocabulary.ChangeOps;
 
 public class Main {
 

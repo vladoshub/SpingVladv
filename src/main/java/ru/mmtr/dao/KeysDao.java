@@ -1,7 +1,7 @@
-package dao;
+package ru.mmtr.dao;
 
-import entity.Keys;
-import entity.Words;
+import ru.mmtr.entity.Keys;
+import ru.mmtr.entity.Words;
 
 import java.util.List;
 

@@ -1,10 +1,14 @@
 <%@ page import="java.util.List" %>
 <form method="post">
-    <label>Message:
+    <label>List of operations:
         <%
+            out.println("Message:"+s);
+            out.println("Message:"+s);
+            out.println("Message:"+s);
+            out.println("Message:"+s);
             String s =  (String)request.getAttribute("req");
             if(s!=null)
-                out.println(s);
+                out.println("Message:"+s);
 
         %>
     </label>

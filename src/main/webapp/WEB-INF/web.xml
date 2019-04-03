@@ -12,13 +12,13 @@
 
 
     <servlet>
-        <servlet-name>Vocaburares</servlet-name>
-        <servlet-class>servlets.JavaServlet</servlet-class>
+        <servlet-name>Vocabulares</servlet-name>
+        <servlet-class>ru.mmtr.servlets.JavaServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>Vocaburares</servlet-name>
-        <url-pattern>/Vocaburares</url-pattern>
+        <servlet-name>Vocabulares</servlet-name>
+        <url-pattern>/Vocabulares</url-pattern>
     </servlet-mapping>
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
